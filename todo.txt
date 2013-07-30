@@ -4,3 +4,8 @@ metrics
 
 cucumber
 
+Hibernate Validator
+
+Authentication
+
+No web.xml
