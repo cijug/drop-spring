@@ -2,8 +2,9 @@ package org.cijug.dropspring.web;
 
 import com.google.common.base.Optional;
 import com.yammer.metrics.annotation.Timed;
-import org.cijug.dropspring.core.Blog;
-import org.cijug.dropspring.view.BlogView;
+import org.cijug.dropspring.core.Plant;
+import org.cijug.dropspring.db.PlantDao;
+import org.cijug.dropspring.view.PlantView;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,22 +13,24 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Path("/blog")
 //@Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_HTML})
-public class BlogResource {
+public class PlantResource {
 
+    private final PlantDao dao;
     private final AtomicLong counter;
 
-    public BlogResource() {
+    public PlantResource(PlantDao dao) {
+        this.dao = dao;
         this.counter = new AtomicLong();
     }
 
     @GET
     @Timed
-    public BlogView getPost(@QueryParam("name") Optional<String> name) {
+    public PlantView getPost(@QueryParam("name") Optional<String> name) {
         long counter = this.counter.incrementAndGet();
 
-        Blog blog = new Blog("Name: " + counter, "Description: " + counter);
+        Plant plant = new Plant("Name: " + counter, "Description: " + counter);
 
-        return new BlogView(blog);
+        return new PlantView(plant);
     }
 
     @POST
@@ -35,9 +38,9 @@ public class BlogResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes({"application/x-www-form-urlencoded", MediaType.APPLICATION_JSON})
     public String makePost(MultivaluedMap<String, String> params) {
-        Blog blog = new Blog(params.getFirst("name"), params.getFirst("description"));
+        Plant plant = new Plant(params.getFirst("name"), params.getFirst("description"));
 
-        System.out.println("blog = " + blog);
+        System.out.println("plant = " + plant);
 
         return "" + this.counter.incrementAndGet();
     }

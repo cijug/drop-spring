@@ -7,20 +7,22 @@ import java.io.Serializable;
 
 import static java.lang.String.format;
 
-@XmlRootElement
-public class Blog implements Serializable {
+public class Plant implements Serializable {
 
-//    @NotEmpty
+    @NotEmpty
     private String name;
 
-//    @NotEmpty
+    @NotEmpty
     private String description;
 
-    public Blog() {
+    @NotEmpty
+    private int size;
+
+    public Plant() {
 
     }
 
-    public Blog(String name, String description) {
+    public Plant(String name, String description) {
         this.name = name;
         this.description = description;
     }
@@ -39,6 +41,14 @@ public class Blog implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public String toString() {
