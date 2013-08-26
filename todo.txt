@@ -1,3 +1,5 @@
+understand difference between di and ioc
+
 healthcheck
 
 metrics

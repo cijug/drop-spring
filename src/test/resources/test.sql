@@ -1,5 +1,5 @@
-CREATE TABLE plants (
-    ID int NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255),
-    size INT
+CREATE TABLE packages (
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    url VARCHAR(100)
 );

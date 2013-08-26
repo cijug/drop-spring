@@ -2,9 +2,22 @@
     <head>
         <link rel="stylesheet" href="/assets/css/style.css">
     <body>
-        <h1>I AM THE SUPER</h1>
+        <h1>Meredith Front-End Libraries</h1>
+        <hr>
+
+        <form id="searchForm" onsubmit="doSearch(this);">
+            Plant Name: <input type="text" id="query">
+            <input type="submit" value="Search"/>
+        </form>
+
         {{$content}}
-            SUPER Content
         {{/content}}
+
+        <script>
+            function doSearch(form) {
+                var searchValue = document.getElementById('query').value;
+                form.action = '/packages/search/' + searchValue;
+            }
+        </script>
     </body>
 </html>

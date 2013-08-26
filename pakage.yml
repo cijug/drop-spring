@@ -1,0 +1,19 @@
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password:
+  url: jdbc:mysql://localhost:3306/bower
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 1s
+  validationQuery: "Select 1"
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  checkConnectionHealthWhenIdleFor: 10s
+  closeConnectionIfIdleFor: 1 minute
+
+logging:
+  level: INFO
+
+git: okay
