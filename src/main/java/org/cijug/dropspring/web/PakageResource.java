@@ -40,7 +40,7 @@ public class PakageResource {
     @POST
     @Timed
     @Consumes(MediaType.APPLICATION_JSON)
-    public String addPakage(@Auth User user, @Valid Pakage pakage) {
+    public String addPakage(@Valid Pakage pakage) {
         return "" + dao.savePakage(pakage);
     }
 
